@@ -1,0 +1,105 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>T&P GCOEA</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/resume.css' %}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .mySlides {display:none;height:350px;}
+    </style>
+
+</head>
+<body>
+<div class="header">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <img src= "{% static 'images/m4.jpg' %}" height="80" width="80"/>
+        </div>
+        <div class="col-md-10 headtxt">
+            <p>Training And Placement</p>
+            <p>Government College Of Engineering ,Amravati.</p>
+            <p>(An Autonomous Institute of Technology)</p>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="navbar">
+
+  <a href={% url 'resume:download' %}>Download</a>
+  <a href={% url 'resume:procedure' %}>Procedure</a>
+   Notices
+     {% if user.is_authenticated %}
+                    <a   href="{% url 'resume:logout' %}">logout</a>
+                    <a   href="{% url 'resume:resume_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus "></span></a>
+                    <a  href="{% url 'resume:resume_edit' %}" class="top-menu"><span class="glyphicon glyphicon-edit "></span></a>
+     {% else %}
+                    <a href="{% url 'resume:login' %}" > Student login </a> / <a  class="logs"  href="{% url 'resume:signup' %}"> Student signup </a>
+     {% endif %}
+</div>
+
+ <div class="content container">
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+ </div>
+ <div class="row">
+
+  <div class="footer">
+       <div   style="float:right; display:inline-block; ">
+        <span style="float:left;width: 20%;">
+            <h2>Other links</h2>
+            <a href="#">Report</a><br>
+            <a href="#">Help</a>
+        </span>
+        <span style="float:right;width:80%;" ><h4>Contact Us:</h4><p>Prof. M. M. Deshmukh<br>
+            Training and Placement Officer<br>
+            E-mail ID: <a href="mailto:mmd101@gmail.com">mmd101@gmail.com</a>/<a href="mailto:tandp@gcoea.ac.in">tandp@gcoea.ac.in</a>
+            <br>
+            Cell: +91 98222 31575</p>
+        </span>
+       </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js">
+</script>
+<script>
+                $(document).ready(function() {
+                $('.has-popover').popover({'trigger':'hover'})});
+ </script>
+<script>
+        var slideIndex = 0;
+        carousel();
+
+        function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {slideIndex = 1}
+        x[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 2000);
+        }
+</script>
+</body>
+</html>
+

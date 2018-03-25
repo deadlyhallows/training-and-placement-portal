@@ -1,0 +1,35 @@
+{% extends 'resume/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="w3-content" style="max-width:1000px";>
+                <img class="mySlides" src="static/images/m1.png" >
+                <img class="mySlides" src="static/images/m2.png" >
+                <img class="mySlides" src="static/images/m3.png" >
+            </div>
+        </div>
+    </div>
+ </div>
+    <div class="side">
+        <h2><DEPARTMENTS</h2>
+        <div style="height:60px;"> COMPUTER SCIENCE AND ENGINEERING</div><br>
+        <div  style="height:60px;"> INFORMATION TECHNOLOGY</div><br>
+        <div  style="height:60px;"> MECHANICAL ENGINEERING</div>
+        <div style="height:60px;">CIVIL ENGINEERING</div>
+        <div  style="height:60px;"> ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING</div>
+    </div>
+
+    <div class="fakeimg" style="height:500px;">
+            <div   style="float:right; display:inline-block; ">
+            <span style="float:left;width: 30%;">
+                <h2>Register For Placement</h2>
+                <p style="float:left;display:block;"align ="justify">GCOEAians have excelled and acquired positions of eminence in every field imaginable-From engineering to finance to management to even arts. Start recruiting from the best!</p>
+                <a href="#">Register Now</a>
+            </span>
+            </div>
+    </div>
+
+{% endblock %}
