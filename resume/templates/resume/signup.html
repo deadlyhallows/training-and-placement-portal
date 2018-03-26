@@ -24,7 +24,7 @@
         </style>
 {% endblock style %}
 
-  <form>
+  <form method="post" style="width:35%">
     <h2>Sign up</h2>
     {% csrf_token %}
     {{ form.as_p }}

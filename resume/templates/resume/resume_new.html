@@ -1,0 +1,15 @@
+{% extends 'resume/base.html' %}
+
+{% block content %}
+
+
+
+<form method="post" style="width:35%">
+     <h2>Resume</h2>
+      {% csrf_token %}
+      {{ form.as_p }}
+    <button type="submit"><a href="{% url 'resume:pdf' %}">SAVE</a></button>
+
+</form>
+
+{% endblock %}

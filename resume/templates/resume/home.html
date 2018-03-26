@@ -2,34 +2,38 @@
 {% load staticfiles %}
 
 {% block content %}
- <div class="container">
+ <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="w3-content" style="max-width:1000px";>
-                <img class="mySlides" src="static/images/m1.png" >
-                <img class="mySlides" src="static/images/m2.png" >
-                <img class="mySlides" src="static/images/m3.png" >
-            </div>
+
+                <img class="mySlides" style="width: 1615px" src="{% static 'images/m1.png' %}" >
+                <img class="mySlides" style="width: 1615px" src="{% static 'images/m2.png' %}" >
+                <img class="mySlides" style="width: 1615px" src="{% static 'images/m3.png' %}" >
+
         </div>
     </div>
- </div>
     <div class="side">
-        <h2><DEPARTMENTS</h2>
-        <div style="height:60px;"> COMPUTER SCIENCE AND ENGINEERING</div><br>
-        <div  style="height:60px;"> INFORMATION TECHNOLOGY</div><br>
-        <div  style="height:60px;"> MECHANICAL ENGINEERING</div>
-        <div style="height:60px;">CIVIL ENGINEERING</div>
-        <div  style="height:60px;"> ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING</div>
+        <h2>DEPARTMENTS</h2><br>
+        <div><a href="#">COMPUTER SCIENCE AND ENGINEERING</a></div><br>
+        <div ><a href="#">INFORMATION TECHNOLOGY</a></div><br>
+        <div ><a href="#">MECHANICAL ENGINEERING</a> </div><br>
+        <div ><a href="#">CIVIL ENGINEERING</a>  </div><br>
+        <div ><a href="#">ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING</a> ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING</div><br>
     </div>
 
-    <div class="fakeimg" style="height:500px;">
-            <div   style="float:right; display:inline-block; ">
-            <span style="float:left;width: 30%;">
+  <div class="row">
+      <div class="col-md-12">
+        <div class="fakeimg" style="height:250px;">
+            <div   style="  float:right; display:inline-block; ">
+            <span style="font-size: 20px">
                 <h2>Register For Placement</h2>
                 <p style="float:left;display:block;"align ="justify">GCOEAians have excelled and acquired positions of eminence in every field imaginable-From engineering to finance to management to even arts. Start recruiting from the best!</p>
-                <a href="#">Register Now</a>
+                <a href="#" style="color:white;">Register Now</a>
             </span>
             </div>
+        </div>
+      </div>
     </div>
+</div>
 
 {% endblock %}

@@ -8,7 +8,7 @@ class ResumeForm(forms.ModelForm):
 
     class Meta:
         model = Resume
-        fields = ('Name', 'ProjectsandInternships', 'PhoneNumber', 'Cgpa', 'TenthMarks', 'TenthCollegeName', 'TwelthMarks', 'TwelthCollegeName',)
+        fields = ('StudentName', 'ProjectsandInternships', 'StudentId','Branch','PhoneNumber', 'Cgpa', 'TenthMarks', 'TenthSchoolName', 'TwelthMarks', 'TwelthCollegeName',)
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')

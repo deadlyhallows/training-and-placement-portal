@@ -27,7 +27,7 @@
  {% if form.errors %}
     <p style="color: red">Your username and password didn't match. Please try again.</p>
   {% endif %}
-  <form>
+  <form method="post" style="width:30%">
       <h2>Log in </h2>
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}" />

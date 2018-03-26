@@ -7,12 +7,14 @@ from django.dispatch import receiver
 
 # Create your models here.
 class Resume(models.Model):
-    Name = models.ForeignKey('auth.User',on_delete=models.CASCADE)
-    ProjectsandInternships= models.TextField()
+    StudentName = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    ProjectsandInternships= models.CharField(max_length=200)
+    StudentId=models.IntegerField()
+    Branch=models.CharField(max_length=200)
     PhoneNumber=models.IntegerField()
     Cgpa = models.FloatField()
     TenthMarks=models.FloatField()
-    TenthCollegeName = models.CharField(max_length=200)
+    TenthSchoolName = models.CharField(max_length=200)
     TwelthMarks=models.FloatField()
     TwelthCollegeName = models.CharField(max_length=200)
 

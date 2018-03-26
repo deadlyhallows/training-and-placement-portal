@@ -17,24 +17,49 @@ from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 import smtplib
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.views.generic import View
+from resume.utils import render_to_pdf  # created in step 4
+from django.template.loader import get_template
+from django.template import Context
 
 
+def generate_view(request, *args, **kwargs):
+    template = get_template('pdf/invoice.html')
+    Context = {
+        "student name":"Awanti Deotale",
+        "Projects and Internships":"fgncuwcfgnk",
+        "Phone Number":12345678,
+        "cgpa":8.48,
+        "10th marks":96,
+        "10th school":"rgvtyty",
+        "12th marks":88,
+        "12th college":"lhieryv",
 
-
-
+    }
+    html = template.render(Context)
+    pdf = render_to_pdf('pdf/invoice.html', Context)
+    if pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = "Invoice_%s.pdf" % ("12341231")
+        content = "inline; filename='%s'" % (filename)
+        download = request.GET.get("download")
+        if download:
+            content = "attachment; filename='%s'" % (filename)
+        response['Content-Disposition'] = content
+        return response
+    return HttpResponse("Not found")
 
 def resume_new(request):
-    if request.method == "RESUME":
-        form = ResumeForm(request.RESUME)
+    if request.method == "POST":
+        form = ResumeForm(request.POST)
         if form.is_valid():
             resume = form.save(commit=False)
-
-
             resume.save()
-            return redirect('resume:resume_preview', pk=resume.pk)
+            return redirect('resume:home')
     else:
         form = ResumeForm()
-    return render(request, 'resume/home.html', {'form': form})
+    return render(request, 'resume/resume_new.html', {'form': form})
 
 
 
@@ -74,11 +99,6 @@ def signup(request):
 
 def account_activation_sent(request):
     return render(request, 'resume/account_activation_sent.html')
-
-
-
-
-
 
 
 def activate(request, uidb64, token):
