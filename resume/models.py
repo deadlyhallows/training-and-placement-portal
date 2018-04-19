@@ -21,8 +21,7 @@ class Resume(models.Model):
     def ResumeSave(self):
         self.save()
 
-    def __str__(self):
-        return self.Name
+
 
 
 
